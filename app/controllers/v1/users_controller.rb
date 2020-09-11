@@ -16,4 +16,9 @@ class V1::UsersController < ApplicationController
 		else
 			render json: user.errors, status: :unprocessable_entity
 	end
+
+	private
+	def user_params
+		params.require(:user).permit(:email, :uid, :name)
+	end
 end

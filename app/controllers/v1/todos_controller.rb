@@ -4,7 +4,7 @@ class V1::TodosController < ApplicationController
 		if todo.save
 			render json: todo, status: :created
 		else
-			render json: todo.errors, status: :unprocessable_entry
+			render json: todo.errors, status: :unprocessable_entity
 		end
 	end
 

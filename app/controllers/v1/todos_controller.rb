@@ -9,6 +9,11 @@ class V1::TodosController < ApplicationController
 	end
 
 	def destroy
-		
+		todo = Todo.find(params[:id])
+		if todo.destroy
+			render json: todo
+		end
 	end
+
+	
 end

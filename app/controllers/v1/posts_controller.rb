@@ -1,10 +1,15 @@
 class V1::PostsController < ApplicationController
 	def index
-		@posts = Post.all
+		posts = Post.all
 		render json: posts 
 	end
 
 	def create
+		post = Post.new(post_params)
+		if post.save
+			render json: post, status: :created
+		else
+			render json: post.error, status: :unprocessable_entity
 	end
 
 	private
